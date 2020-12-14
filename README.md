@@ -1,4 +1,4 @@
-# docker-nginx-client-ssl-lab
+# docker-nginx-mtls-lab
 
 This repository provides a laboratory setup that demonstrates how to extract the SSL client certificate using nginx.
 
@@ -29,12 +29,12 @@ curl -k --cert tmp/client1.crt --key tmp/client1.key -D- https://localhost:8443 
 You should see the certificate in the headers:
 ```
 Server: nginx/1.12.1
-Date: Mon, 14 Dec 2020 18:15:44 GMT
+Date: Mon, 14 Dec 2020 18:30:42 GMT
 Content-Type: text/html
 Content-Length: 4100
 Last-Modified: Fri, 30 Aug 2019 10:45:47 GMT
 Connection: keep-alive
 ETag: "5d68fe5b-1004"
-X-SSL-CLIENT-CERT: -----BEGIN CERTIFICATE-----
+X-SSL-CLIENT-CERT: MIIDCTCCAfECAQEwDQYJKoZIhvcNAQELBQAwRzELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRQwEgYDVQQKDAtNeU9yZywgSW5jLjEVMBMGA1UEAwwMbXlkb21haW4uY29tMB4XDTIwMTIxNDE4MTQxNFoXDTMwMTIxMjE4MTQxNFowTjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRQwEgYDVQQKDAtNeU9yZywgSW5jLjEcMBoGA1UEAwwTY2xpZW50Lm15ZG9tYWluLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN66z3vnAHp8G7gYyI5fE6L98T1WI00nQn1C4V9HAY2WSeiM0MAf63AANpnKeUMoR4A6D897xGLONPVaFfpMnlhAWvVBox9QGt42CIX8oDOhqiHj3LfpqhXjl05Yy+WXzmfb5+QTFTiAEhlHUFiEnUDBzM1SctJK53L4SoWOPF6aSaG9whguFEcRc4SdwZFk08pdQQzYXNd/R9dooXBjzFSX35FUZFb8ATC35zMMxvG8dvNIv35ttdgfpTR/nCZsqujRnh60pH6aIPGXzkBhSdmTdM+fPhgbAxghX8xK+PfCHkbNkYm00FHula5umdNR9GfiKrRU9r2gQLv07+1gfkcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAVvCKyXyqp8VvX4bGUsQ5mcHo/1sAJ/HwG9WHR47tRZo3YS7bDJ5Jn+okPtUsmCGywJFJBOj8KAtLRnoKESYRTvDnYMHy9QHiryoUYcy5Xsq0hew3dGRYnrTK7ES0Ms74/QGcWw9m316E6YtbMKlsfNSZ9ggp3WUcFBaN507ibPTZBvXneQ0DBa4g61lupoZzB/isBdtc29NT0wE8DiKA7QajQDn5xyBq6he9KfvFG0BxskIomXRJWHFkBhUFC9kUQkrWzZSZX6iYzIqR5deUV2vNjXeVyGYNmXYZ2WusOjDf6DW/vE+KYPgBnMF/fnHLvxnX+H//+IaFB1NPjjuKMQ==
 ...
 ```
