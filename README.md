@@ -14,11 +14,31 @@ In the docker host:
 ```sh
 sh ./gen-ssl-keys.sh
 ```
+Create the docker network for the lab setup
+```
+docker network create nginx-lab --subnet=172.19.0.0/16
+```
 
-Build & run the container
+Build & run the nginx container
 ```sh
-docker build -t nginx .
-docker run -p8443:8443 nginx
+docker build -t nginx -f Dockerfile.nginx .
+docker run \
+    --network  nginx-lab \
+    --ip 172.19.0.2 \
+    --name nginx \
+    --publish 8443:8443 \
+    nginx
+```
+
+Build & run the quickweb container
+```sh
+docker build -t quickweb -f Dockerfile.quickweb .
+docker run \
+    --network nginx-lab \
+    --ip 172.19.0.3 \
+    --name quickweb \
+    --publish 8080:8080 \
+    quickweb
 ```
 
 In a new window:

@@ -1,0 +1,10 @@
+#The following should work with a RHEL subscription:
+#
+#   FROM rhscl/nginx-118-rhel7
+
+#FROM centos/nginx-112-centos7
+FROM  python:3.8
+RUN pip install quickweb
+COPY webapp/ /usr/webapp
+CMD ["quickweb", "run", "/usr/webapp"]
+#CMD ["nginx", "-g", "daemon off;"]
